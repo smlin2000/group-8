@@ -56,8 +56,22 @@ public class GameWindow {
     frmEntryTerminal.setBounds(100, 100, 450, 300);
     frmEntryTerminal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
-    String[] colNames = {"Player Name", "Team"};
-    Object[][] tableData = {{"test1", "test2"}, {"test3", "test4"}};
+    String[] colNames = {"First Name", "Last Name", "Code Name"};
+    Object[][] tableData = {
+    		{"test1", "test2", "test3"},
+    		{"test4", "test5", "test6"},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""},
+    		{"", "", ""} };
     
     JLabel screenLabel = new JLabel("Edit Current Game");
     screenLabel.setHorizontalAlignment(SwingConstants.CENTER);
