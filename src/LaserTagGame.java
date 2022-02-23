@@ -10,7 +10,7 @@ public class LaserTagGame extends JFrame {
   public LaserTagGame() {
   	// Show Splash Screen
   	setContentPane(new JPanel()); //TODO Make splash screen here
-  	setBounds(50, 50, 600, 400);
+  	setBounds(50, 50, 600, 410);
   	setVisible(true);
   	setTitle("Splash Screen");
   	
@@ -23,7 +23,6 @@ public class LaserTagGame extends JFrame {
   	
   	// Show entry terminal screen
   	setContentPane(new EntryTerminal());
-  	setBounds(50, 50, 600, 400);
   	setVisible(true);
   	setTitle("Entry Terminal");
   }
