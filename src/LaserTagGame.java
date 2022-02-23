@@ -1,5 +1,10 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
 
 public class LaserTagGame extends JFrame {
 
@@ -13,10 +18,11 @@ public class LaserTagGame extends JFrame {
   	setBounds(50, 50, 600, 410);
   	setVisible(true);
   	setTitle("Splash Screen");
-  	
+
+	  
   	// Sleep while showing splash screen
   	try {
-			Thread.sleep(1000);
+			Thread.sleep(2500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
