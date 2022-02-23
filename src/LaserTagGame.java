@@ -12,11 +12,12 @@ public class LaserTagGame extends JFrame {
   
   public LaserTagGame() {
   	// Show Splash Screen
-  	setContentPane(new JPanel()); //TODO Make splash screen here
-  	setBounds(50, 50, 600, 410);
-  	setVisible(true);
 	JPanel SplashScreen = new JPanel(new BorderLayout());
 	SplashScreen.add(new JLabel(new ImageIcon("logo.jpg")));
+	setContentPane(new JPanel()); //TODO Make splash screen here
+  	setBounds(50, 50, 600, 410);
+  	setVisible(true);
+	
   	setTitle("Splash Screen");
   	
   	// Sleep while showing splash screen
