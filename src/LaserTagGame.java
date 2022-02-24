@@ -1,8 +1,5 @@
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,12 +14,9 @@ public class LaserTagGame extends JFrame {
   
   public LaserTagGame() {
   	// Show Splash Screen
-	JPanel SplashScreen = new JPanel(new BorderLayout());
-	SplashScreen.add(new JLabel(new ImageIcon("logo.jpg")));
-	setContentPane(new JPanel()); //TODO Make splash screen here
+  	setContentPane(new JPanel()); //TODO Make splash screen here
   	setBounds(50, 50, 600, 410);
   	setVisible(true);
-	
   	setTitle("Splash Screen");
 
 	  
