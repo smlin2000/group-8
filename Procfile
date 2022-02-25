@@ -1,0 +1,1 @@
+web: java -jar target/team8lasertag-1.0.jar
