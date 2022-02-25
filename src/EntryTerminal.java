@@ -81,7 +81,7 @@ public class EntryTerminal extends JPanel implements TableModelListener {
     
     // Red team table model
     redModel = new DefaultTableModel(15, 2);
-    redModel.setSize(30,30);
+    //redModel.setSize(30,30);
 	
     // Red team table
     tableRed = new JTable(redModel);
