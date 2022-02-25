@@ -23,7 +23,7 @@ public class LaserTagGame extends JFrame {
   	
   	// Sleep while showing splash screen
   	try {
-			Thread.sleep(2500);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
