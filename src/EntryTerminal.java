@@ -45,45 +45,50 @@ public class EntryTerminal extends JPanel implements TableModelListener {
   private void initialize() {
     
   	// name of columns for both player tables
-    String[] columnHeaders = { "Player ID", "Codename" };
+    //String[] columnHeaders = { "Player ID", "Codename" };
     
-    setLayout(new BorderLayout(0, 0));
+    setLayout(new BorderLayout());
     
     // Label at top of screen
     JLabel screenLabel = new JLabel("Edit Current Game");
     screenLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	screenLabel.setVerticalAlignment(SwingConstants.TOP);
+	screenLabel.setPreferredSize(new Dimension(2147483647, 14));
     add(screenLabel);
     
     // Box horizontally arranging left and right halves of the screen
     horizontalBox = Box.createHorizontalBox();
     add(horizontalBox);
-    
+    horizontalBox.setBackground(new Color(128, 0, 0));
+	
     // Vertical box containing red team contents
     verticalBoxRed = Box.createVerticalBox();
     horizontalBox.add(verticalBoxRed);
+	verticalBoxRed.setBackground(new Color(128, 0, 0));
     
     // Textbox labeling red team table
     txtRedTeam = new JTextField();
     txtRedTeam.setForeground(new Color(255, 255, 255));
     txtRedTeam.setBackground(new Color(128, 0, 0));
     txtRedTeam.setMaximumSize(new Dimension(2147483647, 14));
-    txtRedTeam.setText("Red Team");
+    txtRedTeam.setText("RED TEAM");
+	txtRedTeam.setHorizontalAlignment(JTextField.CENTER);
     verticalBoxRed.add(txtRedTeam);
-    txtRedTeam.setColumns(10);
     
     // Scrollpane that red team table is contained in
     scrollPaneRed = new JScrollPane();
     verticalBoxRed.add(scrollPaneRed);
     
     // Red team table model
-    redModel = new DefaultTableModel(20, 2);
-    redModel.setColumnIdentifiers(columnHeaders);
-    
+    redModel = new DefaultTableModel(15, 2);
+    redModel.setSize(30,30);
+	
     // Red team table
     tableRed = new JTable(redModel);
     scrollPaneRed.setViewportView(tableRed);
+	//tableRed.setSize(30, 30);
     
-    // Vertical box containing green team contents
+    //Vertical box containing green team contents
     verticalBoxGreen = Box.createVerticalBox();
     horizontalBox.add(verticalBoxGreen);
     
@@ -92,17 +97,18 @@ public class EntryTerminal extends JPanel implements TableModelListener {
     txtGreenTeam.setBackground(new Color(0, 128, 0));
     txtGreenTeam.setForeground(new Color(255, 255, 255));
     txtGreenTeam.setMaximumSize(new Dimension(2147483647, 14));
-    txtGreenTeam.setText("Green Team");
+	//txtGreenTeam.setMaximumSize(new Dimension(450, 500));
+    txtGreenTeam.setText("GREEN TEAM");
+	txtGreenTeam.setHorizontalAlignment(JTextField.CENTER);
     verticalBoxGreen.add(txtGreenTeam);
-    txtGreenTeam.setColumns(10);
     
-    // Scrollpane that green team table is contained in
+    //Scrollpane that green team table is contained in
     scrollPaneGreen = new JScrollPane();
     verticalBoxGreen.add(scrollPaneGreen);
     
     // Green team table model
-    greenModel = new DefaultTableModel(20, 2);
-    greenModel.setColumnIdentifiers(columnHeaders);
+    greenModel = new DefaultTableModel(15, 2);
+    //greenModel.setColumnIdentifiers(columnHeaders);
     
     // Green team table
     tableGreen = new JTable(greenModel);
