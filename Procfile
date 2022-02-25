@@ -1,1 +1,1 @@
-web: java -jar target/team8laser.jar
+web: java -jar target/LaserTagGame.jar
