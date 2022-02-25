@@ -33,7 +33,7 @@ public class EntryTerminal extends JPanel implements TableModelListener {
   public EntryTerminal() {
     // Add UI components
     initialize();
-    
+
     // Add table listeners
     tableRed.getModel().addTableModelListener(this);
     tableGreen.getModel().addTableModelListener(this);
@@ -43,73 +43,69 @@ public class EntryTerminal extends JPanel implements TableModelListener {
    * Initialize the contents of the panel.
    */
   private void initialize() {
-    
-  	// name of columns for both player tables
-    //String[] columnHeaders = { "Player ID", "Codename" };
-    
+
+    // name of columns for both player tables
+    String[] columnHeaders = { "Player ID", "Codename" };
+
     setLayout(new BorderLayout());
-    
+
     // Label at top of screen
     JLabel screenLabel = new JLabel("Edit Current Game");
     screenLabel.setHorizontalAlignment(SwingConstants.CENTER);
-	screenLabel.setVerticalAlignment(SwingConstants.TOP);
-	screenLabel.setPreferredSize(new Dimension(2147483647, 14));
+    screenLabel.setVerticalAlignment(SwingConstants.TOP);
+    screenLabel.setPreferredSize(new Dimension(2147483647, 14));
     add(screenLabel);
-    
+
     // Box horizontally arranging left and right halves of the screen
     horizontalBox = Box.createHorizontalBox();
     add(horizontalBox);
-    horizontalBox.setBackground(new Color(128, 0, 0));
-	
+
     // Vertical box containing red team contents
     verticalBoxRed = Box.createVerticalBox();
     horizontalBox.add(verticalBoxRed);
-	verticalBoxRed.setBackground(new Color(128, 0, 0));
-    
+
     // Textbox labeling red team table
     txtRedTeam = new JTextField();
     txtRedTeam.setForeground(new Color(255, 255, 255));
     txtRedTeam.setBackground(new Color(128, 0, 0));
     txtRedTeam.setMaximumSize(new Dimension(2147483647, 14));
     txtRedTeam.setText("RED TEAM");
-	txtRedTeam.setHorizontalAlignment(JTextField.CENTER);
+    txtRedTeam.setHorizontalAlignment(JTextField.CENTER);
     verticalBoxRed.add(txtRedTeam);
-    
+
     // Scrollpane that red team table is contained in
     scrollPaneRed = new JScrollPane();
     verticalBoxRed.add(scrollPaneRed);
     
     // Red team table model
     redModel = new DefaultTableModel(15, 2);
-    //redModel.setSize(30,30);
-	
+    redModel.setColumnIdentifiers(columnHeaders);
+
     // Red team table
     tableRed = new JTable(redModel);
     scrollPaneRed.setViewportView(tableRed);
-	//tableRed.setSize(30, 30);
-    
+
     //Vertical box containing green team contents
     verticalBoxGreen = Box.createVerticalBox();
     horizontalBox.add(verticalBoxGreen);
-    
+
     // Textbox labeling green team label
     txtGreenTeam = new JTextField();
     txtGreenTeam.setBackground(new Color(0, 128, 0));
     txtGreenTeam.setForeground(new Color(255, 255, 255));
     txtGreenTeam.setMaximumSize(new Dimension(2147483647, 14));
-	//txtGreenTeam.setMaximumSize(new Dimension(450, 500));
     txtGreenTeam.setText("GREEN TEAM");
-	txtGreenTeam.setHorizontalAlignment(JTextField.CENTER);
+    txtGreenTeam.setHorizontalAlignment(JTextField.CENTER);
     verticalBoxGreen.add(txtGreenTeam);
-    
+
     //Scrollpane that green team table is contained in
     scrollPaneGreen = new JScrollPane();
     verticalBoxGreen.add(scrollPaneGreen);
-    
+
     // Green team table model
     greenModel = new DefaultTableModel(15, 2);
-    //greenModel.setColumnIdentifiers(columnHeaders);
-    
+    greenModel.setColumnIdentifiers(columnHeaders);
+
     // Green team table
     tableGreen = new JTable(greenModel);
     scrollPaneGreen.setViewportView(tableGreen);
@@ -122,12 +118,12 @@ public class EntryTerminal extends JPanel implements TableModelListener {
     TableModel model = (TableModel)e.getSource();
     Boolean redTeam = (model == redModel);
     String input = (String)model.getValueAt(row, column);
-    
+
     // Ignore changes to header row
     if (row < 0) {
       return;
     }
-    
+
     /*
      * TODO link data to database
      * When a table is changed, this method is called with information about the change that occurred.
@@ -139,7 +135,7 @@ public class EntryTerminal extends JPanel implements TableModelListener {
      * redTeam: (boolean) True if the table that was changed is the red team's (false would presumably be the green team)
      * input: (String) The string that was entered to cause the change
      */
-    
+
     // For testing purposes
     System.out.println("Table change detected!\n" +
         "Cell changed: (" + row + ", " + column +
