@@ -12,6 +12,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.Box;
 import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.KeyboardFocusManager;
+import java.awt.AWTKeyStroke;
+import java.util.*;
 
 public class EntryTerminal extends JPanel implements TableModelListener {
 
@@ -37,6 +41,31 @@ public class EntryTerminal extends JPanel implements TableModelListener {
     // Add table listeners
     tableRed.getModel().addTableModelListener(this);
     tableGreen.getModel().addTableModelListener(this);
+
+    //change function of TAB
+
+    //changes tab in red table
+    Set<AWTKeyStroke> redForward = new HashSet<AWTKeyStroke>
+        (
+        tableRed.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        redForward.add(KeyStroke.getKeyStroke("TAB"));
+        tableRed.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, redForward);
+    //changes shift tab in red table
+    Set<AWTKeyStroke> redBackward = new HashSet<AWTKeyStroke>(
+        tableRed.getFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS));
+        redBackward.add(KeyStroke.getKeyStroke("shift TAB"));
+        tableRed.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, redBackward);
+    //changes tab in green table
+    Set<AWTKeyStroke> greenForward = new HashSet<AWTKeyStroke>
+        (
+        tableGreen.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        greenForward.add(KeyStroke.getKeyStroke("TAB"));
+        tableGreen.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, greenForward);
+    //changes shirt tab in green table
+    Set<AWTKeyStroke> greenBackward = new HashSet<AWTKeyStroke>(
+        tableGreen.getFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS));
+        greenBackward.add(KeyStroke.getKeyStroke("shift TAB"));
+        tableGreen.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, greenBackward);
   }
 
   /**
