@@ -1,1 +1,1 @@
-web: java -jar target/LaserTagGame.jar
+web: java -jar LaserTagGame.jar
